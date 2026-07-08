@@ -43,4 +43,6 @@ RUN addgroup -g 1000 -S app && \
 COPY --from=base-image /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=maker /go/src/github.com/traefik/mesh/dist/traefik-mesh /app/
 
+USER app
+
 ENTRYPOINT ["/app/traefik-mesh"]
